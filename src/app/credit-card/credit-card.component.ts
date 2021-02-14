@@ -20,8 +20,8 @@ export class CreditCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.creditCardForm = this.formBuilder.group({
-      creditCardNumber:  new FormControl(this.creditCard.creditCardNumber, Validators.required),
-      cardHolder: new FormControl( this.creditCard.cardHolder, Validators.required),
+      creditCardNumber:  new FormControl(this.creditCard.creditCardNumber, [Validators.required, this.creditCardService.validateCardNumber]),
+      cardHolder: new FormControl( this.creditCard.cardHolder, [Validators.required, this.creditCardService.expiryDateFormatIsValid]),
       expirationDate: new FormControl(this.creditCard.expirationDate, Validators.required),
       securityCode: new FormControl(this.creditCard.securityCode, Validators.required),
       amount: new FormControl(this.creditCard.amount, Validators.required)
