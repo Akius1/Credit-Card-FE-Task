@@ -1,7 +1,10 @@
 <form action="" [formGroup]="creditCardForm" (ngSubmit)='onSubmit()'>
   <div>
     <label for=""> Credit Card Number </label>
-    <input type="number" name="" id="" formControlName="creditCardNumber" />
+    <input type="number"  formControlName="creditCardNumber" required/>
+    <div *ngIf="form.creditCardNumber.invalid && (form.creditCardNumber.touched || form.creditCardNumber.dirty)">
+      invalid credit card number
+    </div>
   </div>
   <div>
     <label for=""> Card Holder </label>
