@@ -1,0 +1,29 @@
+<form action="" [formGroup]="creditCardForm" (ngSubmit)='onSubmit()'>
+  <div>
+    <label for=""> Credit Card Number </label>
+    <input type="number" name="" id="" formControlName="creditCardNumber" />
+  </div>
+  <div>
+    <label for=""> Card Holder </label>
+    <input type="text" name="" id="" formControlName="cardHolder" />
+  </div>
+  <div>
+    <label for=""> Expiration Date </label>
+    <input type="date" name="" id="" formControlName="expirationDate" />
+  </div>
+  <div>
+    <label for=""> Security Code </label>
+    <input type="number" name="" id="" formControlName="securityCode" />
+  </div>
+  <div>
+    <label for=""> Amount </label>
+    <input type="number" name="" id="" formControlName="amount" />
+  </div>
+  <button [disabled]='creditCardForm.invalid' type="submit">Submit</button>
+</form>
+
+<div>
+  <pre>
+    {{creditCard | json}}
+  </pre>
+</div>
