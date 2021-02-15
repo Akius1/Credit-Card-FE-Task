@@ -44,9 +44,9 @@ export class CreditCardService {
     return null;
   };
   expiryDateFormatIsValid = (c: FormControl) => {
-    console.log(c.value);
     let regEx = /^(((0|)[0-9])|((1)[0-2]))(\/)\d{2}$/;
     if (regEx.test(c.value) === true) {
+      console.log(c.value);
       return regEx.test(c.value) === true
         ? null
         : {

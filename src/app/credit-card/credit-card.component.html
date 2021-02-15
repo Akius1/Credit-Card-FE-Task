@@ -9,18 +9,31 @@
   <div>
     <label for=""> Card Holder </label>
     <input type="text" name="" id="" formControlName="cardHolder" />
+    <div *ngIf="form.cardHolder.invalid && (form.cardHolder.touched || form.cardHolder.dirty)">
+      Card Expired
+    </div>
   </div>
+
   <div>
     <label for=""> Expiration Date </label>
-    <input type="date" name="" id="" formControlName="expirationDate" />
+    <input type="month" id="start" name="start" min="2021-02" value="2021-02" formControlName="expirationDate" />
+    <div *ngIf="form.expirationDate.invalid && (form.expirationDate.touched || form.expirationDate.dirty)">
+      Card Expired
+    </div>
   </div>
   <div>
     <label for=""> Security Code </label>
     <input type="number" name="" id="" formControlName="securityCode" />
+    <div *ngIf="form.securityCode.invalid && (form.securityCode.touched || form.securityCode.dirty)">
+      Card Expired
+    </div>
   </div>
   <div>
     <label for=""> Amount </label>
     <input type="number" name="" id="" formControlName="amount" />
+    <div *ngIf="form.amount.invalid && (form.amount.touched || form.amount.dirty)">
+      Card Expired
+    </div>
   </div>
   <button [disabled]='creditCardForm.invalid' type="submit">Submit</button>
 </form>
