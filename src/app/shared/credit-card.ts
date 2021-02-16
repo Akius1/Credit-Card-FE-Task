@@ -1,17 +1,17 @@
 export interface ICreditCard{
-  creditCardNumber: number;
+  creditCardNumber: string;
   cardHolder: string;
   expirationDate: Date;
-  securityCode: number;
+  securityCode: string;
   amount: number;
 }
 
 
 export class CreditCard{
-  private _creditCardNumber: number;
+  private _creditCardNumber: string;
   private _cardHolder: string;
   private _expirationDate : Date;
-  private _securityCode : number;
+  private _securityCode : string;
   private _amount : number;
 
 
@@ -21,10 +21,10 @@ export class CreditCard{
 
 
 
-  public get creditCardNumber() : number {
+  public get creditCardNumber() : string {
     return this._creditCardNumber;
   }
-  public set creditCardNumber(v : number) {
+  public set creditCardNumber(v : string) {
     this._creditCardNumber = v;
   }
 
@@ -45,10 +45,10 @@ export class CreditCard{
   }
 
 
-  public get securityCode() : number {
+  public get securityCode() : string {
     return this._securityCode;
   }
-  public set securityCode(v : number) {
+  public set securityCode(v : string) {
     this._securityCode = v;
   }
 
