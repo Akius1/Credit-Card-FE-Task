@@ -12,7 +12,7 @@ import { Observable, of, throwError } from 'rxjs';
 export class PaymentService {
   constructor(private http: HttpClient) {}
 
-  makePayment(paymentData: any): Observable<any> {
+  makePayment(paymentData): Observable<any> {
     const response = {
       status: 'success',
       message: 'Payment processed successfully!',

@@ -1,4 +1,19 @@
 
-<button type="submit" (click)="directToCreditCard()">Credit Card</button>
+<button class ='card card-small' type="submit" (click)="directToCreditCard()">Credit Card</button>
 
-<router-outlet></router-outlet>
+
+
+<div class="card card-large">
+  store:
+
+  {{ creditCard$ | async | json }}
+</div>
+
+<div class="view-container">
+  <toaster-container [toasterconfig]="toasterConfig"></toaster-container>
+
+  <router-outlet></router-outlet>
+
+
+  <div ng-view class="view-frame"></div>
+</div>

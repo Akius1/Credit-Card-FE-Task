@@ -7,7 +7,7 @@ import { CreditCardQuery } from './credit-card.selectors';
 
 @Injectable({providedIn:'root'})
 export class CreditCardPaymentFacade {
-  readonly data$: Observable<any>;
+  readonly data$: Observable<ICreditCard>;
 
   constructor(private store: Store) {
     this.data$ = this.store.pipe(select(CreditCardQuery.getICreditCard));
