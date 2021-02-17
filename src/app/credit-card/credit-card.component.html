@@ -1,45 +1,99 @@
-<form action="" [formGroup]="creditCardForm" (ngSubmit)='onSubmit()'>
-  <div>
-    <label for=""> Credit Card Number </label>
-    <input type="number"  formControlName="creditCardNumber" required/>
-    <div *ngIf="form.creditCardNumber.invalid && (form.creditCardNumber.touched || form.creditCardNumber.dirty)">
-      invalid credit card number
+<div class="checkout_form">
+  <form action="" [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+    <div class="card_number">
+      <input
+        class="input"
+        type="number"
+        formControlName="creditCardNumber"
+        placeholder="0000 0000 0000 0000"
+        required
+      />
+      <div
+        *ngIf="
+          form.creditCardNumber.invalid &&
+          (form.creditCardNumber.touched || form.creditCardNumber.dirty)
+        "
+      >
+        invalid credit card number
+      </div>
     </div>
-  </div>
-  <div>
-    <label for=""> Card Holder </label>
-    <input type="text" name="" id="" formControlName="cardHolder" />
-    <div *ngIf="form.cardHolder.invalid && (form.cardHolder.touched || form.cardHolder.dirty)">
-      Card Expired
+    <div class="card_number">
+      <input
+        type="text"
+        class="input"
+        name=""
+        id=""
+        formControlName="cardHolder"
+        placeholder="Enter Name"
+      />
+      <div
+        *ngIf="
+          form.cardHolder.invalid &&
+          (form.cardHolder.touched || form.cardHolder.dirty)
+        "
+      >
+        Card Expired
+      </div>
     </div>
-  </div>
 
-  <div>
-    <label for=""> Expiration Date </label>
-    <input type="month" id="start" name="start" min="2021-02" value="2021-02" formControlName="expirationDate" />
-    <div *ngIf="form.expirationDate.invalid && (form.expirationDate.touched || form.expirationDate.dirty)">
-      Card Expired
+    <div class="card_grp">
+      <div class="expiry_date">
+        <input
+          type="month"
+          class="expiry_input"
+          id="start"
+          name="start"
+          min="2021-02"
+          value="2021-02"
+          formControlName="expirationDate"
+          placeholder="00 0000"
+        />
+        <div
+          *ngIf="
+            form.expirationDate.invalid &&
+            (form.expirationDate.touched || form.expirationDate.dirty)
+          "
+        >
+          Card Expired
+        </div>
+      </div>
+      <div class="cvv">
+        <input
+          type="number"
+          class="cvv_input"
+          name=""
+          id=""
+          formControlName="securityCode"
+          placeholder="cvv"
+        />
+        <div
+          *ngIf="
+            form.securityCode.invalid &&
+            (form.securityCode.touched || form.securityCode.dirty)
+          "
+        >
+          Card Expired
+        </div>
+      </div>
     </div>
-  </div>
-  <div>
-    <label for=""> Security Code </label>
-    <input type="number" name="" id="" formControlName="securityCode" />
-    <div *ngIf="form.securityCode.invalid && (form.securityCode.touched || form.securityCode.dirty)">
-      Card Expired
+    <div class="card_number">
+      <input type="number" class="input" name="" id="" formControlName="amount" placeholder="Amount" />
+      <div
+        *ngIf="
+          form.amount.invalid && (form.amount.touched || form.amount.dirty)
+        "
+      >
+        Card Expired
+      </div>
     </div>
-  </div>
-  <div>
-    <label for=""> Amount </label>
-    <input type="number" name="" id="" formControlName="amount" />
-    <div *ngIf="form.amount.invalid && (form.amount.touched || form.amount.dirty)">
-      Card Expired
+    <div class="btn" >
+    <button [disabled]="creditCardForm.invalid" type="submit">Pay</button>
     </div>
-  </div>
-  <button [disabled]='creditCardForm.invalid' type="submit">Submit</button>
-</form>
-
-<div>
-  <pre>
-    {{creditCard | json}}
-  </pre>
+  </form>
 </div>
+
+<!-- <div>
+  <pre>
+    {{ creditCard | json }}
+  </pre>
+</div> -->
